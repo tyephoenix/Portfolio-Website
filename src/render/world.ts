@@ -10,19 +10,19 @@ function setup() {
     const objLoader = new OBJLoader()
     const fbxLoader = new FBXLoader
 
-    fbxLoader.load("assets/island.fbx", 
+    fbxLoader.load("/island.fbx", 
     function (object) {
         object.scale.set(0.01, 0.01, 0.01)
         SCENE.add(object)
     })
 
-    fbxLoader.load("assets/mountain.fbx", 
+    fbxLoader.load("/mountain.fbx", 
     function (object) {
         object.scale.set(0.07, 0.07, 0.07)
         SCENE.add(object)
     })
 
-    objLoader.load("assets/cloud.obj", 
+    objLoader.load("/cloud.obj", 
     function (object) {
         function place(obj: THREE.Group<THREE.Object3DEventMap>) {
             var randDepth = THREE.MathUtils.randFloat(20, 30)
@@ -53,7 +53,7 @@ function setup() {
         }
     })
 
-    objLoader.load("assets/dome.obj", 
+    objLoader.load("/dome.obj", 
         function (object) {
             object.traverse( 
             function (child) {
@@ -71,7 +71,7 @@ function setup() {
         }
     )
 
-    objLoader.load("assets/crane.obj", 
+    objLoader.load("/crane.obj", 
         function (object) {
             object.traverse( 
             function (child) {
@@ -89,7 +89,7 @@ function setup() {
         }
     )
 
-    objLoader.load("assets/laboratory.obj", 
+    objLoader.load("/laboratory.obj", 
         function (object) {
             object.traverse( 
             function (child) {
@@ -107,7 +107,7 @@ function setup() {
         }
     )
 
-    objLoader.load("assets/rainbow.obj", 
+    objLoader.load("/rainbow.obj", 
         function (object) {
             object.traverse( 
             function (child) {
@@ -125,7 +125,7 @@ function setup() {
         }
     )
 
-    objLoader.load("assets/humanoid.obj", 
+    objLoader.load("/humanoid.obj", 
     function (object) {
         object.traverse( 
         function (child) {

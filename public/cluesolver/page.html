@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clue Solver</title>
+	<script src="app.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="canvas" id="canvas">
+		<div class="initPage">
+			<div class="header">
+				Clue Solver
+			</div>
+			<div class="body">
+				<div class="cardsList">
+					<div class="cardsChild">
+						<div><t>Select Initial Card</t></div>
+						<div>
+							<select id="characterSelect">
+								<option selected value="nil">Choose Character</option>
+							</select>
+							<select id="roomSelect">
+								<option selected value="nil">Choose Room</option>
+							</select>
+							<select id="weaponSelect">
+								<option selected value="nil">Choose Weapon</option>
+							</select>
+						</div>
+						<div><button id="addHeldCard">Add</button></div>
+					</div>
+					<div class="cardsChild">
+						<div class="cardsPanel">
+							<ul class="addedCards" id="addedCards">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<button id="start">Start</button>
+			</div>
+		</div>
+		<div class="gamePage">
+			<div class="header">
+				Clue Solver
+			</div>
+			<div class="inputs">
+				<div class="round">
+					<div><t class="info">Note Who Shows Cards and Who Turns Down Cards</t></div>
+					<div><t class="info2">Seperate Multiple Players by Commas (,)</t></div>
+					<div>
+						<input id="flashingPlayer" type="text" placeholder="Player">
+						<input id="noPlayers" type="text" placeholder="No Player(s)">
+					</div>
+					<div class="picking">
+						<div>
+							<select id="flashedCharacter">
+								<option selected value="nil">Choose Character</option>
+								<option>Col. Mustard</option>
+								<option>Prof. Plum</option>
+								<option>Mr. Green</option>
+								<option>Mrs. Peacock</option>
+								<option>Miss Scarlett</option>
+								<option>Mrs. White</option>
+							</select>
+							<select id="flashedRoom">
+								<option selected value="nil">Choose Room</option>
+								<option>Hall</option>
+								<option>Lounge</option>
+								<option>Dining Room</option>
+								<option>Kitchen</option>
+								<option>Ball Room</option>
+								<option>Conservatory</option>
+								<option>Billiard Room</option>
+								<option>Library</option>
+								<option>Study</option>
+							</select>
+							<select id="flashedWeapon">
+								<option selected value="nil">Choose Weapon</option>
+								<option>Knife</option>
+								<option>Candlestick</option>
+								<option>Revolver</option>
+								<option>Rope</option>
+								<option>Lead Pipe</option>
+								<option>Wrench</option>
+							</select>
+						</div>
+						<button class="submitRound" id="submitRound">Submit Round</button>
+					</div>
+				</div>
+				<div class="shown">'
+					<div><t class="info">Note Shown Card</t></div>
+					<div><input class="showingPlayer" id="showingPlayer" type="text" placeholder="Player"></div>
+					<div>
+						<select id="shownCharacter">
+							<option selected value="nil">Choose Character</option>
+							<option>Col. Mustard</option>
+							<option>Prof. Plum</option>
+							<option>Mr. Green</option>
+							<option>Mrs. Peacock</option>
+							<option>Miss Scarlett</option>
+							<option>Mrs. White</option>
+						</select>
+						<select id="shownRoom">
+							<option selected value="nil">Choose Room</option>
+							<option>Hall</option>
+							<option>Lounge</option>
+							<option>Dining Room</option>
+							<option>Kitchen</option>
+							<option>Ball Room</option>
+							<option>Conservatory</option>
+							<option>Billiard Room</option>
+							<option>Library</option>
+							<option>Study</option>
+						</select>
+						<select id="shownWeapon">
+							<option selected value="nil">Choose Weapon</option>
+							<option>Knife</option>
+							<option>Candlestick</option>
+							<option>Revolver</option>
+							<option>Rope</option>
+							<option>Lead Pipe</option>
+							<option>Wrench</option>
+						</select>
+					</div>
+					<button class="submitShown" id="submitShown">Submit Shown</button>
+				</div>
+			</div>
+			<div class="cardLists">
+				<div class="pList">Characters<ul class="possibleCharacters" id="possibleCharacters"></ul></div>
+				<div class="pList">Weapons<ul class="possibleWeapons" id="possibleWeapons"></ul></div>
+				<div class="pList">Rooms<ul class="possibleRooms" id="possibleRooms"></ul></div>
+			</div>
+			<button class="viewGrid" id="viewGrid">View Grid</button>
+		</div>
+		<div class="gridPage">
+			<table class="gameTable" id="gameTable"></table>
+			<button class="back" id="back">Back</button>
+		</div>
+	</div>
+</body>
+</html>

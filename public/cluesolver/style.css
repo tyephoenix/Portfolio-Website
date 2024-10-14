@@ -1,0 +1,304 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("res/background.jpg");
+	background-size: cover;
+}
+
+.watermark {
+	background-image: url("../../img/icon_1x1_vertical.png");
+	background-size: cover;
+	border-radius: 50px;
+	background-color: rgb(255, 255, 255);
+	opacity: 0.25;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0px 0px 0px 0px black;
+	display: inline-block;
+	transition: border-radius 0.75s ease-in-out, opacity 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
+}
+
+.watermark:hover {
+	opacity: 1;
+	border-radius: 30px;
+	box-shadow: 2px 2px 2px 2px black;
+	cursor: grab;
+}
+
+.canvas {
+	width: 100%;
+	height: 100vh;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(0deg, rgba(113, 188, 225, 0.25) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(255, 255, 255, 0.25) 100%);
+	background-size: 200% 200%;
+	background-position: 10% 0%;
+	animation: canvas 20s infinite ease-in-out;
+}
+
+@keyframes canvas {
+	0% {
+		background-position: 0% 0%;
+	}
+
+	50% {
+		background-position: 0% 100%;
+	}
+
+	100% {
+		background-position: 0% 0%;
+	}
+}
+
+.initPage {
+	position: relative;
+	width: 80%;
+	height: 80%;
+	top: calc(50% - 40%);
+	left: calc(50% - 40%);
+	background-color: rgb(125, 125, 125);
+	border-radius: 10px;
+}
+
+.initPage .header {
+	font-family: monospace;
+	font-size: 50px;
+	color: rgb(230, 230, 230);
+	text-align: center;
+	padding-top: 20px;
+}
+
+.initPage .body {
+	font-family: monospace;
+	font-size: 25px;
+	color: rgb(220, 220, 220);
+	text-align: center;
+}
+
+.cardsChild button {
+	font-size: 25px;
+}
+
+.cardsChild {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+.cardsPanel {
+	background-color: rgb(100, 100, 100);
+	border-radius: 3px;
+	padding: 10px 10px 10px 10px;
+}
+
+.initPage .footer {
+	font-family: monospace;
+	font-size: 25px;
+	color: rgb(220, 220, 220);
+	text-align: center;
+	position: relative;
+	bottom: -40px;
+}
+
+.initPage .footer button {
+	font-size: 35px;
+}
+
+.addedCards {
+	list-style: none;
+	font-size: 10px;
+}
+
+.gamePage {
+	position: relative;
+	width: 80%;
+	height: 80%;
+	top: calc(50% - 40%);
+	left: calc(50% - 40%);
+	background-color: rgb(125, 125, 125);
+	border-radius: 10px;
+}
+
+.gamePage .header {
+	font-family: monospace;
+	font-size: 50px;
+	color: rgb(230, 230, 230);
+	text-align: center;
+	padding-top: 20px;
+}
+
+.possibleCharacters {
+	list-style: none;
+	color: rgb(0, 0, 139);
+	font-size: 15px;
+}
+
+.possibleRooms {
+	list-style: none;
+	color: rgb(0, 169, 0);
+	font-size: 15px;
+}
+
+.possibleWeapons {
+	list-style: none;
+	color: rgb(139, 0, 0);
+	font-size: 15px;
+}
+
+.cardLists {
+	text-align: center;
+	position: relative;
+	margin-right: 20px;
+	bottom: -20px;
+}
+
+.pList {
+	font-family: monospace;
+	font-size: 20px;
+	color: rgb(220, 220, 220);
+	background-color: rgb(100, 100, 100);
+	border-radius: 3px;
+	padding: 10px 10px 10px 10px;
+	display: inline-block;
+	text-align: right;
+}
+
+.inputs {
+	text-align: center;
+	position: relative;
+}
+
+.shown {
+	display: inline-block;
+	margin-left: 30px;
+	position: relative;
+	bottom: -10px;
+}
+
+.showingPlayer {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+
+.round {
+	display: inline-block;
+	position: relative;
+	bottom: 5px;
+}
+
+.submitRound {
+	font-size: 20px;
+}
+
+.submitShown {
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.picking {
+	display: inline-block;
+	position: relative;
+	top: 20px;
+	padding-bottom: 20px;
+}
+
+.viewGrid {
+	position: relative;
+	left: 20px;
+	font-size: 15px;
+}
+
+.gridPage {
+	position: relative;
+	width: 80%;
+	height: 80%;
+	top: calc(50% - 40%);
+	left: calc(50% - 40%);
+	background-color: rgb(125, 125, 125);
+	border-radius: 10px;
+	align-content: center;
+}
+
+.gameTable {
+	width: 80%;
+	height: 80%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button {
+	font-family: monospace;
+	font-size: 30px;
+	position: relative;
+	text-align: center;
+	color: rgb(220, 220, 220);
+	background-color: rgb(100, 100, 100);
+	padding-left: 6px;
+	padding-right: 6px;
+	border-radius: 10px;
+	transition: background-color 0.75s ease-in-out;
+}
+
+button:hover {
+	background-color: rgb(150, 150, 150);
+}
+
+select {
+	color: rgb(220, 220, 220);
+	background-color: rgb(100, 100, 100);
+	border-width: 2px;
+	border-color: rgb(0,0,0);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	transition: background-color 0.75s ease-in-out;
+}
+
+select:hover {
+	background-color: rgb(150, 150, 150);
+}
+
+.info {
+	font-family: monospace;
+	font-size: 15px;
+	color: rgb(220, 220, 220);
+}
+
+.info2 {
+	font-family: monospace;
+	font-size: 12px;
+	color: rgb(220, 220, 220);
+}
+
+input {
+	font-family: monospace;
+	text-align: center;
+	color: rgb(220, 220, 220);
+	background-color: rgb(100, 100, 100);
+	border-width: 2px;
+	border-color: rgb(0,0,0);
+	border-radius: 4px;
+}
+
+table {
+	border-radius: 10px;
+	background-color: rgb(0,0,0);
+}
+
+tr {
+	color: rgb(220, 220, 220);
+	background-color: rgb(115, 115, 115);
+	text-align: center;
+}
+
+th {
+	background-color: rgb(100, 100, 100);
+}
+
+::placeholder {
+  color: rgb(220, 220, 220);
+  opacity: 0.75;
+}
