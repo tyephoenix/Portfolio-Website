@@ -1,0 +1,198 @@
+
+body {
+    font-family: "Comfortaa";
+    margin: 0;
+}
+
+#navbar {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0px;
+    justify-content: right;
+    font-size: 20px;
+    padding-right: 20px;
+}
+
+#navbar li a {
+    color: gray;
+    display: inline-block;
+    transition: 0.4s;
+    text-decoration: none;
+}
+#navbar li a:hover {
+    color: black;
+}
+
+#header {
+    text-align: center;
+}
+
+#file {
+    list-style-type: none;
+    padding-left: 0px;
+    font-size: 25px;
+}
+
+#file li {
+    color: gray;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 0.4s;
+}
+
+#file li:hover {
+    color: black;
+}
+
+#add {
+    list-style-type: none;
+    font-size: 25px;
+    text-align: center;
+    padding-left: 0px;
+    margin-top: 80px;
+}
+
+#add-button {
+    text-align: center;
+    font-size: 50px;
+    color: gray;
+    transition: 0.4s;
+}
+
+#add-button:hover {
+    cursor: pointer;
+    color: #22a74e;
+}
+
+#canvas {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    border: 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+    border-style: solid;
+    background:conic-gradient(from 90deg at 1px 1px,#0000 90deg, lightgray 0) 0 0/50px 50px
+}
+
+.card {
+    position: relative;
+    background-color: white;
+    display: inline-block;
+    border: 2px;
+    border-style: solid;
+    padding: 15px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-component {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.card-component li {
+    padding-top: 2px;
+    padding-left: 50px;
+    padding-bottom: 2px;
+}
+
+.card-component-title {
+    padding-left: 0px !important;
+}
+
+.card-component-final{
+    padding-left: 25px !important;
+}
+
+.card-final {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#canvas-edit {
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 50px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    padding: 25px;
+    border-radius: 15px;
+    background: conic-gradient(from 90deg at 1px 1px,#0000 90deg, lightgray 0) 0 0/50px 50px
+}
+
+.edit {
+    position: relative;
+    background-color: white;
+    display: inline-block;
+    border: 2px;
+    border-style: solid;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.edit-add {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #22a74e;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 100px;
+    right: 30px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.edit-remove {
+    display: flex;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    border-radius: 100px;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+.edit-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.edit-input {
+    width: 75px;
+    border-radius: 15px;
+}
+
+.edit-component-add {
+    display: flex;
+    margin-left: 30px;
+    width: 20px;
+    height: 20px;
+    background-color: #22a74e;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+}

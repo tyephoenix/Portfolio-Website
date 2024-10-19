@@ -96,5 +96,4 @@ function animate() {
 
     renderer.render(SCENE, CAMERA);
 }
-
 animate();
