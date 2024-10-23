@@ -1,58 +1,19 @@
-
-#content {
+body {
   font-family: "Comfortaa";
-  position: relative;
-  height: 7000px;
 }
 
-#content {
-  font-family: "Comfortaa";
-  position: relative;
-  height: 7000px;
-}
-
-@media screen and (orientation:landscape) {
-  #title {
-    list-style-type: none;
-    text-align: center;
-    margin-top: 80px;
-  }
-}
-
-@media screen and (orientation:portrait) {
-  #title {
-    list-style-type: none;
-    text-align: center;
-    margin-top: 40px;
-  }
-}
-
-#title li {
-  vertical-align: middle;
-  margin-bottom: 30px;
-}
-
-@media screen and (orientation:landscape) {
-  #title li {
-    display: inline-block;
-    margin-left: 5vw;
-    margin-right: 5vw;
-  }
-  #title-label {
-    font-size: 50px;
-  }
-}
-
-@media screen and (orientation:portrait) {
-  #title-label {
-    font-size: 70px;
-  }
+#gl-rendering {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 #navbar {
   list-style-type: none;
   text-align: center;
   padding-top: 50px;
+  padding-left: 0px;
 }
 
 #navbar li {
@@ -63,100 +24,63 @@
   font-size: 24px;
 }
 
-@media screen and (orientation:portrait) {
-  #navbar li {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-}
-card {
-  position: absolute;
-  width: 90vw;
+#title {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0px;
 }
 
-card h1 {
-  font-size: 50px;
-  /* margin-left: 10vw; */
+#title li {
+  margin-bottom: 30px;
+  font-size: 28px;
+  vertical-align: middle;
 }
 
-@media screen and (orientation:landscape) {
-  card h1 {
-    padding-left: 8vw;
-  }
-
-  card {
-    padding-left: 2vw;
-  }
+.research-subsection {
+  text-align: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 
-
-#gl-rendering {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background: rgb(0,0,0);
+.card {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
-@media screen and (orientation:landscape) {
-  .subsection {
-    font-size: 50px;
-    text-decoration: underline;
-  }
+.campus-activities {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
 
-  p {
-    width: 60%;
-    font-size: 18px;
-  }
+#contact-addresses {
+  padding-left: 2vw;
+}
 
-  .research-subsection {
-    margin-left: 5vw;
-  }
+#contact-socials {
+  padding-left: 2vw;
 }
 
 @media screen and (orientation:portrait) {
-  .subsection {
-    font-size: 40px;
-    text-align: center;
-    text-decoration: underline;
-  }
-
-  .research-subsection {
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  p {
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-@media screen and (orientation:landscape) {
-  #gl-rendering {
-    background: radial-gradient(ellipse at right bottom, #87cefa 0%, #87cefa 50%, transparent 60%, transparent 100%);
-  }
-}
-
-@media screen and (orientation:portrait) {
-  #gl-rendering {
-    background: linear-gradient(transparent 0%, #87cefa 10%, #87cefa 100%);
-  }
-}
-
-
-@media screen and (orientation:landscape) {
-  #pdfview {
-    width: 600px;
-    height: 800px;
-  }
-}
-
-@media screen and (orientation:portrait) {
-  #pdfview {
+  #resume {
     width: 250px;
-    height: 333px;
+  }
+}
+
+@media screen and (orientation:landscape) {
+
+  #title li {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #resume {
+    width: 600px;
+  }
+
+  .subsection {
+    padding-left: 7vw;
   }
 }

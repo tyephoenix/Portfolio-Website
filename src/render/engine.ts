@@ -6,23 +6,17 @@ export {
     CAMERA
 }
 
-const IS_DESKTOP = () => window.innerWidth > window.innerHeight
-
-const CANVAS_HEIGHT = () => IS_DESKTOP() ? "60%" : "40%"
-const CANVAS_WIDTH = () => IS_DESKTOP() ? "60%" : "100%"
 const CANVAS = document.getElementById("gl-rendering")
-CANVAS!.style.width = CANVAS_WIDTH()
-CANVAS!.style.height = CANVAS_HEIGHT()
-CANVAS!.style.opacity = "0%"
+CANVAS!.style.height = "100%"
+CANVAS!.style.width = "100%"
+CANVAS!.style.opacity = "20%"
 
 const SCENE = new THREE.Scene()
 const CAMERA = new THREE.PerspectiveCamera(75, CANVAS!.offsetWidth / CANVAS!.offsetHeight, 0.1, 1000)
-const updateViewOffset = () => CAMERA.setViewOffset(CANVAS!.offsetWidth, CANVAS!.offsetHeight, (IS_DESKTOP() ? -0.4 : 0)*CANVAS!.offsetWidth, (IS_DESKTOP() ? -0.2 : 0)*CANVAS!.offsetHeight, (IS_DESKTOP() ? 1.2  : 1)*CANVAS!.offsetWidth, (IS_DESKTOP() ? 1.2 : 1)*CANVAS!.offsetHeight)
-updateViewOffset()
 
 const renderer = new THREE.WebGLRenderer({
-  canvas: CANVAS!,
-  alpha: true
+    canvas: CANVAS!,
+    alpha: true
 })
 renderer.setSize(CANVAS!.offsetWidth, CANVAS!.offsetHeight)
 renderer.setPixelRatio(window.devicePixelRatio)
@@ -30,11 +24,10 @@ renderer.setPixelRatio(window.devicePixelRatio)
 
 window.addEventListener("resize", 
 function () {
-    CANVAS!.style.width = CANVAS_WIDTH()
-    CANVAS!.style.height = CANVAS_HEIGHT()
+    CANVAS!.style.width = "100%"
+    CANVAS!.style.height = "100%"
     renderer.setSize(CANVAS!.offsetWidth, CANVAS!.offsetHeight)
     CAMERA.aspect = CANVAS!.offsetWidth / CANVAS!.offsetHeight
-    updateViewOffset()
     CAMERA.updateProjectionMatrix()
 })
 
@@ -49,13 +42,11 @@ WORLD.setup()
 var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight)
 var cycle = documentHeight - window.innerHeight
 var tick = document.body.getBoundingClientRect().top
-var cards = document.getElementsByTagName("card")
+var cards = document.getElementsByClassName("card")
 var navbar = document.getElementById("navbar")
-var num_of_insets = cards.length
 
 for (var i = 0; i < cards.length; i++) {
     const card = cards[i]
-    const top = (cycle * ((2 * (i + 1)) - 1) / (2 * num_of_insets)) 
     if (card instanceof HTMLElement) {
         card.style.top = top + "px"
 
@@ -65,7 +56,7 @@ for (var i = 0; i < cards.length; i++) {
                 if (child.innerText == card.id) {
                     child.onclick = () => {
                         window.scrollTo({
-                            top: top,
+                            top: card.offsetTop,
                             behavior: "smooth"
                         })
                     }
@@ -78,21 +69,19 @@ for (var i = 0; i < cards.length; i++) {
 
 document.body.onscroll = () => {
     tick = document.body.getBoundingClientRect().top
-
-    CANVAS!.style.opacity = 100*Math.min(-tick / window.innerHeight, 1) + "%"
 }
 function animate() {
     requestAnimationFrame(animate);
 
     var point = tick % cycle
-    var sinusoidal_point = point * ((2*Math.PI)/cycle)
+    // var sinusoidal_point = point * ((2*Math.PI)/cycle)
     
-    var inset_weight = Math.pow(Math.sin((num_of_insets*Math.PI*point)/cycle), 14)
-    CAMERA.position.setZ((20 * inset_weight + 60 * (1 - inset_weight)) * Math.cos(sinusoidal_point))
-    CAMERA.position.setX((20 * inset_weight + 60 * (1 - inset_weight)) * Math.sin(sinusoidal_point))
-    CAMERA.position.setY(2 * inset_weight + 12 * (1 - inset_weight))
+    // var inset_weight = Math.pow(Math.sin((num_of_insets*Math.PI*point)/cycle), 14)
+    // CAMERA.position.setZ((20 * inset_weight + 60 * (1 - inset_weight)) * Math.cos(sinusoidal_point))
+    // CAMERA.position.setX((20 * inset_weight + 60 * (1 - inset_weight)) * Math.sin(sinusoidal_point))
+    CAMERA.position.setY((1/10) * point)
 
-    CAMERA.lookAt(0, 0, 0)
+    // CAMERA.lookAt(0, 0, 0)
 
     renderer.render(SCENE, CAMERA);
 }
