@@ -66,6 +66,7 @@ body {
 }
 
 #canvas {
+    position: relative;
     background-color: white;
     width: 100vw;
     height: 100vh;
@@ -78,7 +79,7 @@ body {
 }
 
 .card {
-    position: relative;
+    position: absolute;
     background-color: white;
     display: inline-block;
     border: 2px;
@@ -195,4 +196,27 @@ body {
     color: white;
     border-radius: 100px;
     cursor: pointer;
+}
+
+#canvas-estimate {
+    display: inline-block;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    font-size: 20px;
+    width: 150px;
+}
+
+#canvas-slider-output {
+    display: inline-block;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    width: 40px;
+}
+
+#canvas-slider {
+    display: inline-block;
+    writing-mode: vertical-lr;
+    direction: rtl;
+    margin-left: 2vw;
+    margin-right: 1vw;
 }

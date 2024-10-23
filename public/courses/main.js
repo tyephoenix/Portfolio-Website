@@ -28,23 +28,15 @@ const ADD = document.getElementById("add-button")
 const IMPORT = document.getElementById("import")
 const EXPORT = document.getElementById("export")
 const CANVAS = document.getElementById("canvas")
+
+const CANVAS_HELPER = document.getElementById("canvas-helper")
 const CANVAS_EDIT = document.getElementById("canvas-edit")
+
 var classes = document.getElementsByClassName("card")
 
 ADD.onclick = function() {
-    var obj = {
-        "name": "New Class",
-        "grades": {
-            "Homework": {
-                "weight": 50,
-                "grades": []
-            },
-            "Tests": {
-                "weight": 50,
-                "grades": []
-            }
-        }
-    }
+    var obj = {}
+    fixObj(obj)
     data.push(obj)
     constructEdit(obj)
 }
@@ -94,6 +86,27 @@ function select(element) {
     }
 }
 
+function fixObj(obj) {
+    if (!obj["name"]) {
+        obj["name"] = "New Class"
+    }
+    if (!obj["grades"]) {
+        obj["grades"] = {
+            "Homework": {
+                "weight": 50,
+                "grades": []
+            },
+            "Tests": {
+                "weight": 50,
+                "grades": []
+            }
+        }
+    }
+    if (!obj["estimate"]) {
+        obj["estimate"] = 90
+    }
+}
+
 function constructCard(obj) {
     var card = document.createElement("div")
     card.className = "card"
@@ -110,10 +123,20 @@ function constructCard(obj) {
         document.addEventListener('mouseup', mouseUp)
     }
     function mouseMove(e) {
-        var top = parseInt(card.style.top, 10)
-        var left = parseInt(card.style.left, 10)
-        card.style.top = (top + e.movementY) + 'px'
-        card.style.left = (left + e.movementX) + 'px'
+        var top = card.offsetTop + e.movementY
+        var left = card.offsetLeft + e.movementX
+        if (top < 0) {
+            top = 0
+        } else if (top + card.offsetHeight >= CANVAS.offsetHeight) {
+            top = CANVAS.offsetHeight - card.offsetHeight
+        }
+        if (left < 0) {
+            left = 0
+        } else if (left + card.offsetWidth >= CANVAS.offsetWidth) {
+            left = CANVAS.offsetWidth - card.offsetWidth
+        }
+        card.style.top = (top) + 'px'
+        card.style.left = (left) + 'px'
     }
     function mouseUp(e) {
         document.removeEventListener('mousemove', mouseMove)
@@ -152,7 +175,7 @@ function constructCard(obj) {
             var grade = obj["grades"][key]["grades"][i]
 
             var card_component_grade = document.createElement("li")
-            card_component_grade.innerText = ((grade[0] / grade[1]) * 100).toString() + "%"
+            card_component_grade.innerText = ((grade[0] / grade[1]) * 100).toString().substring(0,5) + "%"
             card_component.appendChild(card_component_grade)
 
             finalTop += grade[0]
@@ -183,10 +206,14 @@ function constructCard(obj) {
     CANVAS.appendChild(card)
 }
 for (var i = 0; i < data.length; i++) {
+    fixObj(data[i])
     constructCard(data[i])
 }
 
 function constructEdit(obj) {
+
+    CANVAS_HELPER.innerHTML = ''
+    CANVAS_HELPER.appendChild(CANVAS_EDIT)
 
     function constructInput(val, onchange) {
         var input = document.createElement("input")
@@ -231,6 +258,7 @@ function constructEdit(obj) {
     card_title.className = "edit-title"
     card.append(card_title)
 
+    var estimates = []
     for (const key in obj["grades"]) {
         var card_component = document.createElement("ul")
         card_component.className = "card-component"
@@ -285,6 +313,52 @@ function constructEdit(obj) {
         card_component.appendChild(edit_component_component_add)
 
         card.appendChild(card_component)
+
+        if (obj["grades"][key]["grades"].length == 0) {
+            var estimate_slider_output = document.createElement("h1")
+            estimate_slider_output.id = "canvas-slider-output"
+            estimate_slider_output.innerText = obj["estimate"].toString()
+            var estimate_slider = document.createElement("input")
+            estimate_slider.type = "range"
+            estimate_slider.min = "1"
+            estimate_slider.max = "100"
+            estimate_slider.value = obj["estimate"].toString()
+            estimate_slider.id = "canvas-slider"
+            estimate_slider.style.accentColor = lerpColor("#FF5733", "#75FF33", Number(estimate_slider.value) / 100)
+            var estimate_component = document.createElement("h1")
+            estimate_component.id = "canvas-estimate"
+            function calculateGrade() {
+                var grade = 0
+                for (var key0 in obj["grades"]) {
+                    var top = 0
+                    var bottom = 0
+                    for (var i in obj["grades"][key0]["grades"]) {
+                        top += obj["grades"][key0]["grades"][i][0]
+                        bottom += obj["grades"][key0]["grades"][i][1]
+                    }
+                    if (bottom > 0) {
+                        grade += obj["grades"][key0]["weight"] * (top/bottom)
+                    }
+                }
+                return Math.max(((estimate_slider.value - grade) / obj["grades"][key]["weight"]) * 100, 0)
+            }
+            estimate_component.innerText = key + ": " + calculateGrade().toString().substring(0,5)
+            estimate_component.style.color = lerpColor("#FF5733", "#75FF33", Number(calculateGrade()) / 100)
+            estimate_slider.onmousemove = function() {
+                estimate_slider_output.innerText = estimate_slider.value
+                estimate_slider.style.accentColor = lerpColor("#FF5733", "#75FF33", Number(estimate_slider.value) / 100)
+                estimate_component.innerText = key + ": " + calculateGrade().toString().substring(0,5)
+                estimate_component.style.color = lerpColor("#FF5733", "#75FF33", Number(calculateGrade()) / 100)
+            }
+
+            var estimate_wrapper = document.createElement("div")
+            estimate_wrapper.style.display = "flex"
+            estimate_wrapper.style.alignItems = "center"
+            estimate_wrapper.appendChild(estimate_slider_output)
+            estimate_wrapper.appendChild(estimate_slider)
+            estimate_wrapper.appendChild(estimate_component)
+            estimates.push(estimate_wrapper)
+        }
     }
     var edit_component_add = document.createElement("div")
     edit_component_add.innerText = "+"
@@ -300,10 +374,20 @@ function constructEdit(obj) {
     card.appendChild(edit_component_add)
 
     CANVAS_EDIT.appendChild(card)
+
+    if (estimates.length == 1) {
+        CANVAS_HELPER.appendChild(estimates[0])
+    }
 }
 
 function animate() {
     requestAnimationFrame(animate);
+
+    if (CANVAS_EDIT.hasChildNodes()) {
+        CANVAS_HELPER.style.visibility = "visible"
+    } else {
+        CANVAS_HELPER.style.visibility = "collapse"
+    }
 }
 
 animate();
