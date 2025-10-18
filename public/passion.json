@@ -1,0 +1,44 @@
+[
+    {
+        "name": "StartLabs",
+        "role": "Member",
+        "description": {
+            "what": "StartLabs is a premier entrepreneurship club at MIT.",
+            "why": "Enjoy helping highschool and college students fueled by passion to start their own startups/projects."
+        },
+        "link": "https://startup.mit.edu",
+        "image": "/collateral/football.png"
+    },
+    {
+        "name": "MIT Capital Partners",
+        "role": "Member",
+        "description": {
+            "what": "MIT Capital Partners connects VC firms with advanced university students who demonstrate ability to perform due diligence services.",
+            "why": "Enjoy the cooperative environment and ability to learn from experienced investors."
+        },
+        "link": "https://www.mitcap.vc/",
+        "image": "/collateral/mit.png"
+    },
+    {
+        "name": "MIT Varsity Baseball",
+        "role": "Player",
+        "description": {
+            "why": "Enjoy the competitive environment, responsibility and leadership."
+        },
+        "link": "https://mitathletics.com/sports/baseball",
+        "video": {
+            "width": 512,
+            "fps": 10,
+            "src": "/collateral/baseball.png"
+        }
+    },
+    {
+        "name": "Boston Children's Hospital",
+        "role": "Associated Observer",
+        "description": {
+            "why": "Helping children in need by providing assistance in surgery and recovery."
+        },
+        "link": "https://www.childrenshospital.org",
+        "image": "/collateral/hospital.png"
+    }
+]

@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Fauna",
+        "role": "Founder",
+        "start": "03/01/2025",
+        "location": "Cambridge, MA",
+        "description": {
+            "who": "Fauna is a software engineering startup focused on the intersection of social behavior and the internet for individuals and corporations.",
+            "what": "Our current applications, Ant (https://antinsight.com), Marmot (https://marmot.to), Parrot, have raised over $500,000 in funding and is used by thousands. ",
+            "learned": "Learned how to sell and partner with companies, hire and manage employees, and raise money as CEO."
+        },
+        "link": "https://antinsight.com",
+        "image": "/collateral/dave.png"
+    },
+    {
+        "name": "MIT ChemE: Braatz Group",
+        "role": "Computational Researcher",
+        "start": "06/01/2024",
+        "end": "08/31/2025",
+        "location": "Cambridge, MA",
+        "description": {
+            "who": "The Braatz Group is a section in the Ford Chemical Engineering building on MIT's campus that focuses on computational and theoretical aspects of chemical engineering.",
+            "what": "Formulated many simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification.",
+            "learned": "Learned how to use control theory to model these types of chemical equations in Julia and determine that parameters neccessary."
+        },
+        "link": "https://web.mit.edu/braatzgroup/",
+        "image": "/collateral/chemistry.png"
+    },
+    {
+        "name": "Koch Institute: Sanchez-Rivera Laboratory",
+        "role": "Undergraduate Researcher",
+        "start": "01/01/2024",
+        "end": "01/31/2024",
+        "location": "Cambridge, MA",
+        "description": {
+            "who": "The Sanchez-Rivera laboratory is focused primarily on epithelial cell carcinoma.",
+            "what": "Showed that the 'EA' genetic knockout cell line grew without IL-3, suggesting the 'EA' knockout to be a cancerous gene by performing experiments on Ba/F3 dependent cancer cells.",
+            "learned": "Mouse Trained, PPE Trained, Hazardous Laboratory Trained"
+        },
+        "link": "https://www.sanchezriveralab.com/",
+        "slideshow": [
+            "/collateral/peep_0.png",
+            "/collateral/dover.png",
+            "/collateral/peep_1.png"
+        ]
+    },
+    {
+        "name": "Stock Solutions",
+        "role": "Web Developer",
+        "start": "05/01/2023",
+        "end": "08/31/2023",
+        "location": "Toms River, NJ",
+        "description": {
+            "who": "Stock Solutions is an SEO-optimization company for local businesses.",
+            "what": "Built a website tokenization strategy for templates to be filled using an SLM to optimize for SEO.",
+            "learned": "Learned how to communicate with clients and manage projects."
+        },
+        "link": "https://stocksolutions.net",
+        "image": "/collateral/working.png"
+    },
+    {
+        "name": "Fort Myers Mighty Mussels",
+        "role": "Clubhouse Attendant",
+        "start": "04/01/2022",
+        "end": "09/30/2022",
+        "location": "Fort Myers, FL",
+        "description": {
+            "who": "The Mighty Mussels are a minor league baseball team in the Florida State League.",
+            "what": "Prepared food for the team, cleaned the locker rooms, uniforms, and cleats for the players, and oversaw a smooth transition for visiting players and fans.",
+            "learned": "Taught me values of organization and cooperation. Prepared food for the team, cleaned the locker rooms and uniforms for the players, and oversaw a smooth transition for visiting players and fans."
+        },
+        "link": "https://www.milb.com/fort-myers",
+        "video": {
+            "width": 1024,
+            "fps": 7,
+            "src": "/collateral/posing.png"
+        }
+    }
+]

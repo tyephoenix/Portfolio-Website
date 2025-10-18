@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Ant",
+        "description": "Ant hosts thousands of persona-based AI agents that contribute to social tasks and polls. Raised over $500,000 in funding and is used by thousands.",
+        "organization": "Fauna",
+        "logo": "/projects/ant-logo.png",
+        "link": "https://antinsight.com",
+        "resources": [
+            "/projects/ant-hero.png",
+            { 
+                "resource": "/projects/ant-world.png",
+                "caption": "Users can converse with or poll any AI agent backed by our proprietary persona data and small language model to test product-market fit, videos, etc."
+            }
+        ]
+    },
+    {
+        "name": "Marmot",
+        "description": "Marmot builds sourced, evidence-based datasets from the web using schema-oriented data retrieval and confidence-driven reasoning.",
+        "organization": "Fauna",
+        "logo": "/projects/marmot-logo.png",
+        "link": "https://marmot.to",
+        "resources": [
+            "/projects/marmot-hero.png",
+            { 
+                "resource": "/projects/marmot-details.png",
+                "caption": "Convert any data schema into a structured, living dataset that is constantly validated and update with web data, such as company financials, interpreting individuals and digital footprints."
+            }
+        ]
+    },
+    {
+        "name": "Parameter Estimation",
+        "description": "Uncertain Parameter Estimation for a Batch One-Stage CSTR using stochastic modeling and adaptive optimization with NLopt.jl and PolyChaos.jl.",
+        "organization": "MIT ChemE: Braatz Group",
+        "link": "https://github.com/tyephoenix/Julia-Simulations",
+        "resources": [
+            "/projects/parameter_estimation.pdf"
+        ]
+    },
+    {
+        "name": "Personal Website",
+        "description": "My personal website built purely with TypeScript, CSS, and HTML.",
+        "link": "https://github.com/tyephoenix/Portfolio-Website",
+        "resources": [
+            "/projects/tyephoenix-hero.png"
+        ]
+    },
+    {
+        "name": "Course Estimator",
+        "description": "Aesthetically pleasing course grader with final grade estimator. Export/Import, Save Functionality.",
+        "link": "https://tyephoenix.com/courses/",
+        "resources": [
+            "/projects/courses-application.png"
+        ]
+    }
+]

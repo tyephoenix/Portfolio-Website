@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Massachusetts Institute of Technology",
+        "focus": "Computer Science and AI & Biology",
+        "start": "09/01/2023",
+        "end": "06/01/2027",
+        "location": "Cambridge, MA",
+        "emblem": "/education/massachusetts_institute_of_technology.png",
+        "link": "https://www.mit.edu",
+        "courses": [
+            "5.12: Organic Chemistry",
+            "6.1010: Fundamentals of Programming",
+            "18.06: Linear Algebra",
+            "6.3800: Introduction to Inference",
+            "6.1210: Introduction to Algorithms",
+            "6.3900: Introduction to Machine Learning"
+        ],
+        "gpa": {
+            "current": 4.8,
+            "scale": 5.0
+        }
+    },
+    {
+        "name": "St. John Neumann Catholic High School",
+        "focus": "High School Diploma",
+        "start": "09/01/2020",
+        "end": "06/01/2023",
+        "location": "Naples, FL",
+        "emblem": "/education/saint_john_neumann.png",
+        "link": "https://sjnceltics.org/",
+        "courses": [
+            "AP Biology",
+            "AP Calculus AB",
+            "AP Physics 1"
+        ],
+        "gpa": {
+            "current": 4.4,
+            "scale": 4.0
+        }
+    },
+    {
+        "name": "Notre Dame",
+        "focus": "Sustainable Thinking",
+        "start": "12/01/2021",
+        "end": "12/31/2021",
+        "location": "Notre Dame, IN",
+        "emblem": "/education/notre_dame.png",
+        "link": "https://www.nd.edu",
+        "courses": [
+            "Environmental Conservation"
+        ],
+        "gpa": {
+            "current": 4.0,
+            "scale": 4.0
+        }
+    }
+]
