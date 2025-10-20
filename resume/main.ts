@@ -18,10 +18,12 @@ gsap.to('.loading', {
     repeatRefresh: true
 })
 
-initializeLetter()
-
 
 const PARAMS = new URLSearchParams(window.location.search)
+
+if (PARAMS.has('admin')) {
+    initializeLetter()
+}
 
 if (PARAMS.has('download')) {
     if (PARAMS.get('download') === 'resume') {

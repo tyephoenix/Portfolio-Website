@@ -4,6 +4,7 @@ import { drawParanthesizedText, parenthesizeText } from "../util/draw"
 import { renderHeader } from "./header"
 import { renderFooter } from "./footer"
 import { decodeImage } from "../util/image"
+import gsap from "gsap"
 
 const WIDTH = 8.5
 const HEIGHT = 11
@@ -112,6 +113,10 @@ async function renderLetter(company: string, position: string) {
 
 
 export function initializeLetter() {
+    gsap.to('#letter', {
+        display: 'flex'
+    })
+
     const COMPANY = document.getElementById('company') as HTMLInputElement
     const POSITION = document.getElementById('position') as HTMLInputElement
     
