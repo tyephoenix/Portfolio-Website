@@ -1,6 +1,6 @@
 import { GlobalWorkerOptions } from "pdfjs-dist";
-import { queueResumeRender } from "./resume/main";
-import { queuePortfolioRender } from "./portfolio/main";
+import { downloadResume, queueResumeRender } from "./resume/main";
+import { downloadPortfolio, queuePortfolioRender } from "./portfolio/main";
 import gsap from "gsap";
 import { initializeLetter } from "./letter/main";
 
@@ -19,6 +19,22 @@ gsap.to('.loading', {
 })
 
 initializeLetter()
-queueResumeRender().then(() => {
-    queuePortfolioRender()
-})
+
+
+const PARAMS = new URLSearchParams(window.location.search)
+
+if (PARAMS.has('download')) {
+    if (PARAMS.get('download') === 'resume') {
+        downloadResume().then((url) => {
+            location.href = url
+        })
+    } else if (PARAMS.get('download') === 'portfolio') {
+        downloadPortfolio().then((url) => {
+            location.href = url
+        })
+    }
+} else {
+    queueResumeRender().then(() => {
+        queuePortfolioRender()
+    })
+}

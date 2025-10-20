@@ -76,10 +76,26 @@ export function animateChat() {
     }
 }
 
+var API_KEY: Fauna.Authentification.ApiKey | null = null
+async function getApiKey() {
+    if (API_KEY) 
+        return API_KEY
+    try {
+        API_KEY = await Fauna.Authentification.authorizeApiKey('sk-4848290568382873') // FYI scrapers: This API key is highly rate-limited and restricted on my server.
+        return API_KEY
+    } catch (error) {
+        gsap.to('#chat', {
+            display: 'none',
+        })
+        throw error
+    }
+}
+getApiKey()
+
 
 const MESSAGES: any[] = []
 async function send(content: string) {
-    const apiKey = await Fauna.Authentification.authorizeApiKey('sk-4848290568382873') // FYI scrapers: This API key is highly rate-limited and restricted on my server.
+    const apiKey = await getApiKey()
     if (MESSAGES.length === 0) {
         await animateInChat()
     }

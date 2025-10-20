@@ -108,10 +108,14 @@ DOWNLOAD.onmouseleave = () => {
         color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
     })
 }
-DOWNLOAD.onclick = () => {
+DOWNLOAD.onclick = async () => {
+    URL.revokeObjectURL(await downloadResume())
+}
+
+export async function downloadResume(): Promise<string> {
     if (!PDF) {
-        queueResumeRender()
-        return
+        await queueResumeRender()
+        return await downloadResume()
     }
 
     const blob = new Blob([new Uint8Array(PDF)], { type: 'application/pdf' })
@@ -122,5 +126,5 @@ DOWNLOAD.onclick = () => {
     a.download = `PHOENIX_Tye-${new Date().toLocaleDateString('en-US', { year: 'numeric' })}.pdf`
     a.click()
 
-    URL.revokeObjectURL(url)
+    return url
 }

@@ -12,25 +12,28 @@ const HEIGHT = 8.5
 
 var RENDER: Promise<Uint8Array> | null = null
 var PDF: Uint8Array | null = null
-export function queuePortfolioRender() {
-    gsap.set('#portfolio .render', {
-        aspectRatio: WIDTH / HEIGHT,
-    })
-    if (RENDER) 
-        return
-    const promise = renderPortfolio()
-    gsap.to('#portfolio .loading', {
-        duration: 0.3,
-        opacity: 1,
-    })
-    RENDER = promise
-    promise.then(() => {
-        RENDER = null
-
+export function queuePortfolioRender(): Promise<void> {
+    return new Promise((resolve) => {
+        gsap.set('#portfolio .render', {
+            aspectRatio: WIDTH / HEIGHT,
+        })
+        if (RENDER) 
+            return
+        const promise = renderPortfolio()
         gsap.to('#portfolio .loading', {
             duration: 0.3,
+            opacity: 1,
+        })
+        RENDER = promise
+        promise.then(() => {
+            RENDER = null
+            resolve()
 
-            opacity: 0,
+            gsap.to('#portfolio .loading', {
+                duration: 0.3,
+
+                opacity: 0,
+            })
         })
     })
 }
@@ -100,10 +103,14 @@ DOWNLOAD.onmouseleave = () => {
         color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
     })
 }
-DOWNLOAD.onclick = () => {
+DOWNLOAD.onclick = async () => {
+    URL.revokeObjectURL(await downloadPortfolio())
+}
+
+export async function downloadPortfolio(): Promise<string> {
     if (!PDF) {
-        queuePortfolioRender()
-        return
+        await queuePortfolioRender()
+        return await downloadPortfolio()
     }
 
     const blob = new Blob([new Uint8Array(PDF)], { type: 'application/pdf' })
@@ -114,5 +121,5 @@ DOWNLOAD.onclick = () => {
     a.download = `PHOENIX_Tye_Portfolio-${new Date().toLocaleDateString('en-US', { year: 'numeric' })}.pdf`
     a.click()
 
-    URL.revokeObjectURL(url)
+    return url
 }
