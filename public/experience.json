@@ -21,7 +21,7 @@
         "description": {
             "who": "The Braatz Group is a section in the Ford Chemical Engineering building on MIT's campus that focuses on computational and theoretical aspects of chemical engineering.",
             "what": "Formulated many simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification.",
-            "learned": "Learned how to use control theory to model these types of chemical equations in Julia and determine that parameters neccessary."
+            "learned": "Learned how to use control theory to model these types of chemical equations in Julia and determine that parameters necessary."
         },
         "link": "https://web.mit.edu/braatzgroup/",
         "image": "/collateral/chemistry.png"
