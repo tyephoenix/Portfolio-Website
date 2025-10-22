@@ -1,7 +1,7 @@
 {
     "name": "Tye Phoenix",
     "birthday": "04/16/2005",
-    "address": "359 Cambridge Street, Apt 2L, Cambridge, MA 02139",
+    "address": "359 Cambridge Street, Apt 2L, Cambridge, MA 02141",
     "hometown": "Naples, Florida",
     "interests": ["Small Language Models", "Generative AI", "Computational Science", "Web Scraping", "Computer Vision", "Image/Audio Encoding"],
     "skills": ["Python", "JavaScript", "TypeScript", "React.js", "Node.js", "Next.js", "Express.js", "MongoDB", "AWS", "GCP", "Docker", "Git"],
