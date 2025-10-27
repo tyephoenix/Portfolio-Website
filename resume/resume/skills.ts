@@ -2,7 +2,7 @@ import { PDFDocument, PDFFont, PDFPage } from "pdf-lib";
 
 
 
-export async function renderSkills(doc: PDFDocument, page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
+export async function renderSkills(page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
     const { dpi, margin, width, height, fontSize, wordSpacing } = dimensions
     const { bookman, bookmanBold, bookmanItalic } = fonts
 
@@ -46,7 +46,7 @@ export async function renderSkills(doc: PDFDocument, page: PDFPage, fonts: Recor
         x: margin,
         y: startY
     })
-    page.drawText(background.skills.slice(0, 12).join(", "), {
+    page.drawText(background.skills.slice(0, 15).join(", "), {
         font: bookman,
         size: fontSize,
 

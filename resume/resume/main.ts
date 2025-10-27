@@ -8,6 +8,7 @@ import { renderSkills } from "./skills";
 import * as pdfjsLib from 'pdfjs-dist';
 import gsap from "gsap";
 import { pdfToPng } from "../util/image";
+import { renderProjects } from "./projects";
 
 
 const WIDTH = 8.5
@@ -79,7 +80,7 @@ async function renderResume() {
 
     const fonts = { bookman, bookmanBold, bookmanItalic, icons, brands }
 
-    await renderSkills(doc, page, fonts, dimensions, await renderActivities(doc, page, fonts, dimensions, await renderExperience(doc, page, fonts, dimensions, await renderEducation(doc, page, fonts, dimensions, await renderHeader(doc, page, fonts, dimensions)))))
+    await renderSkills(page, fonts, dimensions, await renderActivities(page, fonts, dimensions, await renderProjects(page, fonts, dimensions, await renderExperience(page, fonts, dimensions, await renderEducation(page, fonts, dimensions, await renderHeader(doc, page, fonts, dimensions))))))
 
     const bytes = await doc.save()
 

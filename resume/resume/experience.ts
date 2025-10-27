@@ -2,7 +2,7 @@ import { PDFDocument, PDFFont, PDFPage, rgb } from "pdf-lib"
 import { drawParanthesizedText, parenthesizeText } from "../util/draw"
 
 
-export async function renderExperience(doc: PDFDocument, page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
+export async function renderExperience(page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
     const { dpi, margin, width, height, fontSize, wordSpacing } = dimensions
     const { bookman, bookmanBold, bookmanItalic } = fonts
 
@@ -18,7 +18,16 @@ export async function renderExperience(doc: PDFDocument, page: PDFPage, fonts: R
         y: startY + fontSize
     })
 
+    var size = 0
     for (const item of experience) {
+        if (size >= 3) {
+            break
+        }
+        if ('resume' in item && !item.resume) {
+            continue
+        }
+        size += 1
+
         startY -= wordSpacing
 
         // Name
@@ -73,7 +82,7 @@ export async function renderExperience(doc: PDFDocument, page: PDFPage, fonts: R
             y: startY
         })
 
-        startY = drawParanthesizedText(page, parenthesizeText(item.description.who, width - 3 * dpi, bookman, fontSize), bookman, fontSize, { x: margin + bookman.widthOfTextAtSize(' - ', fontSize), y: startY })
+        startY = drawParanthesizedText(page, parenthesizeText(item.description.who, width - 2 * dpi, bookman, fontSize), bookman, fontSize, { x: margin + bookman.widthOfTextAtSize(' - ', fontSize), y: startY })
 
         startY -= wordSpacing - fontSize
 

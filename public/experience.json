@@ -1,12 +1,12 @@
 [
     {
-        "name": "Fauna",
+        "name": "Ant (acquisition pending)",
         "role": "Founder",
         "start": "03/01/2025",
         "location": "Cambridge, MA",
         "description": {
-            "who": "Fauna is a software engineering startup focused on the intersection of social behavior and the internet for individuals and corporations.",
-            "what": "Our current applications, Ant (https://antinsight.com), Marmot (https://marmot.to), Parrot (my proprietary small language model), have raised over $500,000 in funding and is used by thousands. ",
+            "who": "Software engineering startup focused on the intersection of social behavior and the internet for individuals and corporations.",
+            "what": "Full-stack AI application that has raised over $500,000 in funding and is used by thousands. Frontend built in React.js, Next.js, TypeScript, Tailwind CSS, HTML. Backend built in Node.js, Express.js, MongoDB, managed by GCP (formerly AWS). Uses AI hosted on project Parrot (privately owned small language model) and public LLM. Personas collected via project Marmot (privately owned dataset AI researcher).",
             "learned": "Learned how to sell and partner with companies, hire and manage employees, and raise money as CEO."
         },
         "link": "https://antinsight.com",
@@ -19,9 +19,9 @@
         "end": "08/31/2025",
         "location": "Cambridge, MA",
         "description": {
-            "who": "The Braatz Group is a section in the Ford Chemical Engineering building on MIT's campus that focuses on computational and theoretical aspects of chemical engineering.",
-            "what": "Formulated many simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification.",
-            "learned": "Learned how to use control theory to model these types of chemical equations in Julia and determine that parameters necessary."
+            "who": "Section in the Ford Chemical Engineering building on MIT's campus that focuses on control theory and applied mathematical modeling of chemical engineering.",
+            "what": "Formulated simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification for vaccine manufacturing involving PDEs using Julia, MATLAB, and Python.",
+            "learned": "Learned to apply mathematics via control theory and ML frameworks to find unknown parameters and predict phyiscal reactions for optimization."
         },
         "link": "https://web.mit.edu/braatzgroup/",
         "image": "/collateral/chemistry.png"
@@ -42,7 +42,8 @@
             "/collateral/peep_0.png",
             "/collateral/dover.png",
             "/collateral/peep_1.png"
-        ]
+        ],
+        "resume": false
     },
     {
         "name": "Stock Solutions",
@@ -52,8 +53,8 @@
         "location": "Toms River, NJ",
         "description": {
             "who": "Stock Solutions is an SEO-optimization company for local businesses.",
-            "what": "Built a website tokenization strategy for templates to be filled using an SLM to optimize for SEO.",
-            "learned": "Learned how to communicate with clients and manage projects."
+            "what": "Built a website tokenization application using Java, JavaFX, HTML, CSS, and JavaScript for templates to be filled using a public LLM to optimize for SEO.",
+            "learned": "Learned to further develop a business using software engineering, manage projects, and communicate with clients."
         },
         "link": "https://stocksolutions.net",
         "image": "/collateral/working.png"
@@ -74,6 +75,7 @@
             "width": 1024,
             "fps": 7,
             "src": "/collateral/posing.png"
-        }
+        },
+        "resume": false
     }
 ]

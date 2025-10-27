@@ -1,7 +1,7 @@
-import { PDFDocument, PDFFont, PDFPage, rgb } from "pdf-lib";
+import { PDFFont, PDFPage, rgb } from "pdf-lib";
 
 
-export async function renderEducation(doc: PDFDocument, page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
+export async function renderEducation(page: PDFPage, fonts: Record<string, PDFFont>, dimensions: { dpi: number, margin: number, width: number, height: number, fontSize: number, wordSpacing: number }, startY: number = 0) {
     const { dpi, margin, width, height, fontSize, wordSpacing } = dimensions
     const { bookman, bookmanBold, bookmanItalic } = fonts
 

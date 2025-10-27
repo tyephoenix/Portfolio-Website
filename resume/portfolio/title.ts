@@ -190,7 +190,7 @@ export async function renderTitle(doc: PDFDocument, fonts: Record<string, PDFFon
     var startY = 4 * dpi - 1.75 * margin / 2- fontSize * 1.5
     var index = 1
     for (const project of projects) {
-        const label = `Slide ${index}. ${project.name}`
+        const label = `Slide ${index}. ${project.name.includes(':') ? project.name.split(':')[0] : project.name}`
         page.drawText(label, {
             font: comfortaa,
             size: fontSize,

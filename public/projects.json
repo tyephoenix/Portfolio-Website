@@ -11,14 +11,29 @@
                 "resource": "/projects/ant-world.png",
                 "caption": "Users can converse with or poll any AI agent backed by our proprietary persona data and small language model to test product-market fit, videos, etc."
             }
+        ],
+        "resume": false
+    },
+    {
+        "name": "Parrot: Modeling Social Bias and Emergent Behavior in Small Language Agents",
+        "description": "Parrot is a privately owned small language model that is used to power socially active AI agents in projects such as Ant. Built using Python, PyTorch, HuggingFace, Flask. Derivative of Qwen-2.5-Omni-10B. Paper in progress.",
+        "organization":"Fauna & MIT CSAIL",
+        "logo": "/projects/parrot-logo.png",
+        "link": "https://parrotlab.ai (not live yet)",
+        "resources": [
+            "/projects/parrot-hero.png",
+            { 
+                "resource": "/projects/parrot-chat.png",
+                "caption": "Fully-fledged chat interface with voice assistant mode. Parrot provides the ability to manipulate the agents race, sex, age, and other demographical attributes to test bias and social measures."
+            }
         ]
     },
     {
         "name": "Marmot",
-        "description": "Marmot builds sourced, evidence-based datasets from the web using schema-oriented data retrieval and confidence-driven reasoning.",
+        "description": "Marmot builds sourced, evidence-based datasets from the web using schema-oriented data retrieval and confidence-driven reasoning. Built using React.js, Next.js, TypeScript, Tailwind CSS, HTML, Node.js, Express.js, MongoDB,and public LLM.",
         "organization": "Fauna",
         "logo": "/projects/marmot-logo.png",
-        "link": "https://marmot.to",
+        "link": "https://marmot.to (not live yet)",
         "resources": [
             "/projects/marmot-hero.png",
             { 
@@ -38,7 +53,7 @@
     },
     {
         "name": "Personal Website",
-        "description": "My personal website built purely with TypeScript, CSS, and HTML.",
+        "description": "My personal website built using TypeScript, CSS, and HTML.",
         "link": "https://github.com/tyephoenix/Portfolio-Website",
         "resources": [
             "/projects/tyephoenix-hero.png"
@@ -46,7 +61,7 @@
     },
     {
         "name": "Course Estimator",
-        "description": "Aesthetically pleasing course grader with final grade estimator. Export/Import, Save Functionality.",
+        "description": "Aesthetically pleasing course grader with final grade estimator built using TypeScript, CSS, and HTML. Export/Import, Save Functionality.",
         "link": "https://tyephoenix.com/courses/",
         "resources": [
             "/projects/courses-application.png"
