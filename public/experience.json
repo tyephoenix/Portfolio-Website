@@ -21,7 +21,7 @@
         "description": {
             "who": "Section in the Ford Chemical Engineering building on MIT's campus that focuses on control theory and applied mathematical modeling of chemical engineering.",
             "what": "Formulated simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification for vaccine manufacturing involving PDEs using Julia, MATLAB, and Python.",
-            "learned": "Learned to apply mathematics via control theory and ML frameworks to find unknown parameters and predict phyiscal reactions for optimization."
+            "learned": "Learned to apply mathematics via control theory and ML frameworks to find unknown parameters and predict physical reactions for optimization."
         },
         "link": "https://web.mit.edu/braatzgroup/",
         "image": "/collateral/chemistry.png"

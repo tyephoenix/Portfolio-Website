@@ -1,7 +1,7 @@
 [
     {
         "name": "Ant",
-        "description": "Ant hosts thousands of persona-based AI agents that contribute to social tasks and polls. Raised over $500,000 in funding and is used by thousands.",
+        "description": "Ant hosts thousands of persona-based AI agents that contribute to social tasks and polls. Built with React.js, Next.js, TypeScript, Tailwind CSS, HTML, Node.js, Express.js, MongoDB, Parrot (SLM, see later), Marmot (data pipeline, see later), and public LLM. Raised over $500,000 in funding and is used by thousands. Acquisition pending.",
         "organization": "Fauna",
         "logo": "/projects/ant-logo.png",
         "link": "https://antinsight.com",
