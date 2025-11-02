@@ -1,7 +1,7 @@
 [
     {
         "name": "Ant (acquisition pending)",
-        "role": "Founder / Software Engineer",
+        "role": "Founder / Software Engineer (Full-Stack)",
         "start": "03/01/2025",
         "location": "Cambridge, MA",
         "description": {
@@ -14,13 +14,13 @@
     },
     {
         "name": "MIT ChemE: Braatz Group",
-        "role": "Computational Researcher",
+        "role": "Computational Scientist (C++/Julia)",
         "start": "06/01/2024",
         "end": "08/31/2025",
         "location": "Cambridge, MA",
         "description": {
             "who": "Section in the Ford Chemical Engineering building on MIT's campus that focuses on control theory and applied mathematical modeling of chemical engineering.",
-            "what": "Formulated simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification for vaccine manufacturing involving PDEs using Julia, MATLAB, and Python.",
+            "what": "Formulated simulations of bilinear chemical reactions, two-tank systems, and monticlonal antibody purification for vaccine manufacturing involving PDEs using C++, Julia, MATLAB, and Python.",
             "learned": "Learned to apply mathematics via control theory and ML frameworks to find unknown parameters and predict physical reactions for optimization."
         },
         "link": "https://web.mit.edu/braatzgroup/",
@@ -47,7 +47,7 @@
     },
     {
         "name": "Stock Solutions",
-        "role": "Web Developer",
+        "role": "Web Developer (Front-End)",
         "start": "05/01/2023",
         "end": "08/31/2023",
         "location": "Toms River, NJ",
