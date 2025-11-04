@@ -119,13 +119,13 @@ export async function renderHeader(doc: PDFDocument, page: PDFPage, fonts: Recor
     })
 
     // Chat My AI
-    page.drawText('Chat My AI', {
-        font: bookmanBold,
-        size: fontSize * 1.5,
+    // page.drawText('Chat My AI', {
+    //     font: bookmanBold,
+    //     size: fontSize * 1.5,
 
-        x: width - margin - 256 - wordSpacing,
-        y: height - margin + wordSpacing
-    })
+    //     x: width - margin - 256 - wordSpacing,
+    //     y: height - margin + wordSpacing
+    // })
     page.drawText('\uf57d', {
         font: icons,
         size: fontSize,
