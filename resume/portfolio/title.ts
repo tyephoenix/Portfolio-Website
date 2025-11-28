@@ -15,7 +15,7 @@ export async function renderTitle(doc: PDFDocument, fonts: Record<string, PDFFon
     const contact = await (await fetch("/contact.json")).json()
 
     // Clouds
-    const clouds = await doc.embedPng((await decodeImage('/misc/cloud.png')).data)
+    const clouds = await doc.embedPng((await decodeImage('/collateral/cloud.png')).data)
     page.drawImage(clouds, {
         x: 2 * dpi,
         y: height - 1 * dpi,
@@ -187,7 +187,7 @@ export async function renderTitle(doc: PDFDocument, fonts: Record<string, PDFFon
     })
 
     // Projects
-    var startY = 4 * dpi - 1.75 * margin / 2- fontSize * 1.5
+    var startY = 4 * dpi - 1.75 * margin / 2 - fontSize * 1.5
     var index = 1
     for (const project of projects) {
         const label = `Slide ${index}. ${project.name.includes(':') ? project.name.split(':')[0] : project.name}`

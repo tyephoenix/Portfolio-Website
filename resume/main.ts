@@ -1,11 +1,12 @@
+import './render/engine'
 import { GlobalWorkerOptions } from "pdfjs-dist";
-import { downloadResume, queueResumeRender } from "./resume/main";
-import { downloadPortfolio, queuePortfolioRender } from "./portfolio/main";
+import { queueResumeRender, setupResumeRender } from "./resume/main";
+import { queuePortfolioRender, setupPortfolioRender } from "./portfolio/main";
 import gsap from "gsap";
 import { initializeLetter } from "./letter/main";
 
 GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.mjs',
+    'pdfjs-dist/build/pdf.worker.min.js',
     import.meta.url
 ).toString()
 
@@ -18,6 +19,11 @@ gsap.to('.loading', {
     repeatRefresh: true
 })
 
+const HEADER = document.getElementById('header') as HTMLDivElement
+HEADER.onclick = () => {
+    window.location.href = '/'
+}
+
 
 const PARAMS = new URLSearchParams(window.location.search)
 
@@ -27,15 +33,13 @@ if (PARAMS.has('admin')) {
 
 if (PARAMS.has('download')) {
     if (PARAMS.get('download') === 'resume') {
-        downloadResume().then((url) => {
-            location.href = url
-        })
+        location.href = '/resume.pdf'
     } else if (PARAMS.get('download') === 'portfolio') {
-        downloadPortfolio().then((url) => {
-            location.href = url
-        })
+        location.href = '/portfolio.pdf'
     }
 } else {
+    setupResumeRender()
+    setupPortfolioRender()
     queueResumeRender().then(() => {
         queuePortfolioRender()
     })

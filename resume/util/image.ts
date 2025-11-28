@@ -1,5 +1,4 @@
-import * as pdfjsLib from 'pdfjs-dist';
-
+import { createCanvas } from "canvas"
 
 export async function decodeImage(url: string): Promise<{ width: number, height: number, data: Uint8Array }> {
     const img = new Image()
@@ -55,18 +54,34 @@ export async function decodeGrayscaleImage(url: string): Promise<{ width: number
     return { width: img.width, height: img.height, data: new Uint8Array(await blob.arrayBuffer()) }
 }
 
-export async function pdfToPng(pdfBytes: Uint8Array, pageIndex: number = 1) {
-    const pdf = await pdfjsLib.getDocument({ data: pdfBytes }).promise
+
+export async function pdfToPng(pdfBytes: Uint8Array, pageIndex: number = 1): Promise<string> {
+    const pdfjs = globalThis.pdfjs ?? await import("pdfjs-dist")
+
+    const pdf = await pdfjs.getDocument({
+        data: pdfBytes,
+    }).promise
     const page = await pdf.getPage(pageIndex)
-  
     const viewport = page.getViewport({ scale: 2.5 })
+
     const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')!
-  
-    canvas.width = viewport.width
-    canvas.height = viewport.height
-  
-    await page.render({ canvasContext: ctx, viewport, canvas }).promise
-  
-    return canvas.toDataURL('image/png')
+    const width = Math.ceil(viewport.width)
+    const height = Math.ceil(viewport.height)
+    canvas.width = width
+    canvas.height = height
+
+    const context = canvas.getContext('2d')!
+
+    const renderTask = page.render({
+        canvasContext: context,
+        viewport: viewport,
+        canvas: canvas
+    })
+    await renderTask.promise
+
+    const url = canvas.toDataURL('image/png')
+
+    await pdf.destroy()
+
+    return url
 }

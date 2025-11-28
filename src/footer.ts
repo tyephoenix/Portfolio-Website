@@ -6,30 +6,34 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function animateFooter(width: number = 0.3) {
     const scale = roundToEven(window.innerWidth * width) / 360
+    
+    const scaledWidth = roundToEven(360 * scale)
+    const scaledHeight = roundToEven(480 * scale)
+
+    const steps = 14760 / 360
+    const duration = steps / 20
 
     const VIDEO = document.getElementById('footer-video') as HTMLElement
     gsap.set(VIDEO, {
-        width: 360 * scale,
-        height: 480 * scale,
+        width: scaledWidth,
+        height: scaledHeight,
 
         backgroundImage: `url(/collateral/bat-boy.png)`,
-        backgroundSize: "cover",
+        backgroundSize: `${scaledWidth * steps}px ${scaledHeight}px`,
         backgroundPosition: "0 0",
         backgroundRepeat: "no-repeat"
     })
 
-    const steps = 14760 / 360
-    const duration = steps / 20
     gsap.to(VIDEO, {
         duration: duration, 
 
-        backgroundPositionX: `-${360 * scale * (steps - 1)}px`,
+        backgroundPositionX: `-${scaledWidth * (steps - 1)}px`,
 
         ease: `steps(${steps - 1})`,
 
         scrollTrigger: {
             trigger: VIDEO,
-            start: `center bottom-=${480 * scale * 0.4}`
+            start: `center bottom-=${scaledHeight * 0.4}`
         }
     })
     VIDEO.onmouseenter = () => {
@@ -40,7 +44,7 @@ export function animateFooter(width: number = 0.3) {
             gsap.to(VIDEO, {
                 duration: duration, 
         
-                backgroundPositionX: `-${360 * scale * (steps - 1)}px`,
+                backgroundPositionX: `-${scaledWidth * (steps - 1)}px`,
         
                 ease: `steps(${steps - 1})`
             })

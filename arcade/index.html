@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://tyephoenix.com/logo.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tye's Arcade</title>
+  </head>
+  <body>
+
+    <div id="message">
+      <a></a>
+    </div>
+
+    <div id="hero">
+      <canvas></canvas>
+
+      <div id="header">
+        <img id="header-icon" src="https://tyephoenix.com/icon.png" alt="Tye Phoenix">
+        <h2>Welcome to my Arcade</h2>
+      </div>
+
+
+      <div id="navbar">
+        <div class="navbar-h1">
+          <span class="material-symbols-outlined">arrow_forward_ios</span>
+          <a>Minecraft</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="minecraft">
+      <h1>Minecraft</h1>
+
+      <div id="minecraft-server">
+        <h2 id="minecraft-server-name">Tye's Server</h2>
+        <div id="minecraft-server-ip">
+          <a readonly>minecraft.tyephoenix.com</a>
+          <span class="material-symbols-outlined">content_copy</span>
+        </div>
+        <div id="minecraft-server-details">
+          <div id="minecraft-server-icon">
+            <img src="/arcade/server.png" alt="Server Icon at minecraft.tyephoenix.com">
+            <div id="minecraft-server-status"></div>
+          </div>
+          <div id="minecraft-server-config">
+            <h3>Online: <span id="minecraft-server-players">0/0</span></h3>
+            <h3>Version: <span id="minecraft-server-version">1.7.10</span></h3>
+            <h3>Platform: <span id="minecraft-server-platform">Vanilla</span></h3>
+
+            <div id="minecraft-server-download">
+              <a>Download Configuration</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

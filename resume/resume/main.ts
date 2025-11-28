@@ -5,7 +5,6 @@ import { renderEducation } from "./education";
 import { renderExperience } from "./experience";
 import { renderActivities } from "./activities";
 import { renderSkills } from "./skills";
-import * as pdfjsLib from 'pdfjs-dist';
 import gsap from "gsap";
 import { pdfToPng } from "../util/image";
 import { renderProjects } from "./projects";
@@ -13,6 +12,32 @@ import { renderProjects } from "./projects";
 
 const WIDTH = 8.5
 const HEIGHT = 11
+export function setupResumeRender() {
+    const DOWNLOAD = document.getElementById('download-resume') as HTMLDivElement
+    DOWNLOAD.onmouseenter = () => {
+        gsap.to(DOWNLOAD, {
+            duration: 0.3,
+
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text'),
+            color: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
+        })
+    }   
+    DOWNLOAD.onmouseleave = () => {
+        gsap.to(DOWNLOAD, {
+            duration: 0.3,
+
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
+            color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
+        })
+    }
+    DOWNLOAD.onclick = async () => {
+        URL.revokeObjectURL(await downloadResume())
+    }
+
+    gsap.set('#resume .render', {
+        aspectRatio: WIDTH / HEIGHT,
+    })
+}
 
 var RENDER: Promise<Uint8Array> | null = null
 var PDF: Uint8Array | null = null
@@ -23,14 +48,17 @@ export async function queueResumeRender(): Promise<void> {
         })
         if (RENDER) 
             return
-        const promise = renderResume()
+        const promise = ((import.meta as any).env != undefined && (import.meta as any).env.MODE == 'production') ? pullResume() : renderResume()
         gsap.to('#resume .loading', {
             duration: 0.3,
 
             opacity: 1,
         })
         RENDER = promise
-        promise.then(() => {
+        promise.then(async (bytes) => {
+            const pdf = document.querySelector('#resume .render') as HTMLDivElement
+            pdf.style.backgroundImage = `url(${await pdfToPng(bytes)})`
+
             RENDER = null
             resolve()
 
@@ -43,7 +71,14 @@ export async function queueResumeRender(): Promise<void> {
     })
 }
 
-async function renderResume() {
+async function pullResume() {
+    const resume = await fetch("/resume.pdf")
+    const resumeBytes = await resume.arrayBuffer()
+    PDF = new Uint8Array(resumeBytes)
+    return PDF
+}
+
+export async function renderResume() {
     const dpi = 300
     const width = WIDTH * dpi
     const height = HEIGHT * dpi
@@ -80,37 +115,15 @@ async function renderResume() {
 
     const fonts = { bookman, bookmanBold, bookmanItalic, icons, brands }
 
+    
     await renderSkills(page, fonts, dimensions, await renderActivities(page, fonts, dimensions, await renderProjects(page, fonts, dimensions, await renderExperience(page, fonts, dimensions, await renderEducation(page, fonts, dimensions, await renderHeader(doc, page, fonts, dimensions))))))
+
 
     const bytes = await doc.save()
 
     PDF = new Uint8Array(bytes)
 
-    const pdf = document.querySelector('#resume .render') as HTMLDivElement
-    pdf.style.backgroundImage = `url(${await pdfToPng(bytes)})`
-
     return bytes
-}
-
-const DOWNLOAD = document.getElementById('download-resume') as HTMLDivElement
-DOWNLOAD.onmouseenter = () => {
-    gsap.to(DOWNLOAD, {
-        duration: 0.3,
-
-        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text'),
-        color: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
-    })
-}   
-DOWNLOAD.onmouseleave = () => {
-    gsap.to(DOWNLOAD, {
-        duration: 0.3,
-
-        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
-        color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
-    })
-}
-DOWNLOAD.onclick = async () => {
-    URL.revokeObjectURL(await downloadResume())
 }
 
 export async function downloadResume(): Promise<string> {

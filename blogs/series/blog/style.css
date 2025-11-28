@@ -1,0 +1,12 @@
+body {
+    padding: 150px 7vw 150px 7vw;
+}
+
+.blog-path a {
+    color: var(--black);
+}
+
+.blog-keyword {
+    background-color: var(--gray);
+    color: var(--white);
+}

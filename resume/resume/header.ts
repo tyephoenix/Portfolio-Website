@@ -118,7 +118,7 @@ export async function renderHeader(doc: PDFDocument, page: PDFPage, fonts: Recor
         height: 256
     })
 
-    // Chat My AI
+    // Chat My AIv
     // page.drawText('Chat My AI', {
     //     font: bookmanBold,
     //     size: fontSize * 1.5,

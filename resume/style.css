@@ -11,22 +11,29 @@
   
 
 body {
+    position: relative;
+
     font-family: "Comfortaa";
     margin: 0px;
-    padding: 150px 0px 250px 0px;
 
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    
+    overflow-x: hidden;
 
     width: 100%;
-
-    gap: 50px;
+    min-height: 100vh;
+    padding: 50px 0px;
+    box-sizing: border-box;
 }
 
-hr {
-    margin: 50px;
+#gl-rendering {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
 }
 
 input {
@@ -41,28 +48,57 @@ input {
     text-align: center;
 }
 
-#resume, #portfolio {
-    position: relative;
+#header {
+    position: absolute;
+    top: 50px;
+    left: 50px;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    cursor: pointer;
+    user-select: none;
+}
+#header img {
+    height: 75px;
+}
+#header a {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text);
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+#resume, #portfolio {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    height: 70vh;
+    height: 50vh;
+    max-width: 80vw;
 
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    margin: 100px;
 }
 
 #resume .render, #portfolio .render {
-    height: 100%;
+    position: relative;
+
     width: 100%;
+    height: 100%;
 
     border: solid;
-    border-width: 10px;
-    border-color: gray;
+    border-width: 5px;
+    border-color: var(--purple);
     border-radius: 5px;
 
     background-color: var(--primary);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 
     background-size: cover;
     background-position: center;
@@ -70,14 +106,24 @@ input {
 }
 
 #letter {
-    position: relative;
-
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     gap: 25px;
+    margin: 50px;
+
+    background-color: var(--primary);
+
+    border: solid;
+    border-width: 5px;
+    border-color: var(--purple);
+    border-radius: 5px;
+
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+    padding: 50px;
 }
 
 .loading {
@@ -96,14 +142,11 @@ input {
 }
 
 .options {
-    position: absolute;
-    bottom: -50px;
+    margin-top: 25px;
 
     display: flex;
     justify-content: center;
     gap: 50px;
-
-    transform: translateY(100%);
 }
 .options div {
     padding: 10px 20px;
@@ -112,4 +155,11 @@ input {
     border-color: var(--text);
     border-radius: 5px;
     cursor: pointer;
+    user-select: none;
+}
+
+@media (orientation: portrait) {
+    #resume {
+        margin-top: 200px;
+    }
 }

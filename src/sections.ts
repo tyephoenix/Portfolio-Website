@@ -3,6 +3,7 @@ import gsap from "gsap"
 
 export async function loadEducation() {
     const EDUCATION = document.getElementById("education") as HTMLElement
+    EDUCATION.innerHTML = "<h1>Education</h1>"
     const DATA = await (await fetch("/education.json")).json()
 
     for (let i = 0; i < DATA.length; i++) {
@@ -83,6 +84,7 @@ export async function loadEducation() {
 
 export async function loadExperience() {
     const EXPERIENCE = document.getElementById("experience") as HTMLElement
+    EXPERIENCE.innerHTML = "<h1>Experience</h1>"
     const DATA = await (await fetch("/experience.json")).json()
 
     for (let i = 0; i < DATA.length; i++) {
@@ -95,7 +97,7 @@ export async function loadExperience() {
         })
 
         const TITLE = document.createElement("h2")
-        TITLE.innerText = item.name
+        TITLE.innerText = item.name.replace(/\(.*?\)/g, '').trim()
         CARD.appendChild(TITLE)
         gsap.set(TITLE, {
             textAlign: 'center'
@@ -151,7 +153,7 @@ export async function loadExperience() {
         div0.appendChild(LINK)
 
         const ROLE = document.createElement("h3")
-        ROLE.innerText = item.role
+        ROLE.innerText = item.role.replace(/\(.*?\)/g, '').trim()
         div0.appendChild(ROLE)
 
         const start = new Date(item.start)
@@ -181,6 +183,7 @@ export async function loadExperience() {
 
 export async function loadPassion() {
     const PASSION = document.getElementById("passion") as HTMLElement
+    PASSION.innerHTML = "<h1>Passion</h1>"
     const DATA = await (await fetch("/passion.json")).json()
 
     for (let i = 0; i < DATA.length; i++) {
@@ -266,6 +269,7 @@ export async function loadPassion() {
 
 export async function loadContact() {
     const CONTACT = document.getElementById("contact") as HTMLElement
+    CONTACT.innerHTML = "<h1>My Contacts</h1>"
     const DATA = await (await fetch("/contact.json")).json()
 
     if (DATA.email) {
@@ -285,7 +289,7 @@ export async function loadContact() {
             display: "flex",
             alignItems: "center",
             gap: "20px",
-            fontSize: "20px"
+            fontSize: "18px"
         })
 
         CONTACT.appendChild(div)
@@ -469,7 +473,7 @@ async function getImageDimensions(url: string): Promise<{ width: number, height:
     return new Promise((resolve, reject) => {
         const img = new Image()
         img.onload = () => {
-            resolve({ width: img.naturalWidth, height: img.naturalHeight });
+            resolve({ width: img.width, height: img.height });
         }
         img.onerror = reject
         img.src = url

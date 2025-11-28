@@ -1,0 +1,146 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    padding: 50px;
+}
+
+h1 {
+    font-size: 48px;
+    color: var(--black);
+}
+
+#form {
+    display: flex;
+    align-self: center;
+
+    gap: 150px;
+}
+
+
+/* Source */
+#form-source {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    width: 35vw;
+    height: 80vh;
+    box-sizing: border-box;
+
+    background-color: white;
+    padding: 75px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+}
+
+#form-source-options {
+    display: flex;
+    gap: 25px;
+}
+#form-source-options div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--black);
+    opacity: 0.5;
+
+    user-select: none;
+    cursor: pointer;
+}
+
+#form-source-options-publish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: solid;
+    border-width: 2px;
+    border-color: var(--black);
+    box-sizing: border-box;
+
+    background-color: var(--black);
+    opacity: 1 !important;
+}
+#form-source-options-publish a, #form-source-options-publish span {
+    color: var(--white);
+    opacity: 1;
+}
+
+#form-source-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+.form-source-input {
+    display: flex;
+    flex-direction: column;
+}
+.form-source-input input {
+    padding: 10px;
+
+    color: var(--black);
+
+    border: solid;
+    border-width: 1px;
+    border-color: var(--gray);
+    border-radius: 5px;
+
+    box-sizing: border-box;
+
+    width: 140px;
+}
+
+#form-cover-photo-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+    height: 40px;
+    width: 140px;
+}
+#form-cover-photo-input input {
+    width: 110px;
+}
+
+#form-source-text {
+    display: flex;
+    flex: 1;
+
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.cm-editor {
+    height: 100%;
+    width: 100%;
+}
+.cm-scroller {
+    overflow-x: hidden !important;
+    max-width: 100%;
+}
+
+
+/* Preview */
+#form-preview {
+    display: flex;
+    flex-direction: column;
+
+    width: 35vw;
+    height: 80vh;
+    box-sizing: border-box;
+
+    background-color: white;
+    padding: 75px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+}

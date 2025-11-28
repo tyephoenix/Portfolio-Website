@@ -7,7 +7,7 @@ import gsap from 'gsap'
 export function setup() {
     const objLoader = new OBJLoader()
 
-    objLoader.load("/dome.obj", 
+    objLoader.load("/collateral/dome.obj", 
         function (object) {
             function place(obj: THREE.Group<THREE.Object3DEventMap>) {
                 var randRot = THREE.MathUtils.randFloat(0, 2*Math.PI)
@@ -72,7 +72,7 @@ export function setup() {
         }
     )
 
-    objLoader.load("/cloud.obj", 
+    objLoader.load("/collateral/cloud.obj", 
         function (object) {
             function place(obj: THREE.Group<THREE.Object3DEventMap>) {
                 var randRot = THREE.MathUtils.randFloat(0, 2*Math.PI)
@@ -135,7 +135,7 @@ export function setup() {
         }
     )
 
-    objLoader.load("/humanoid.obj", 
+    objLoader.load("/collateral/humanoid.obj", 
         function (object) {
             function place(obj: THREE.Group<THREE.Object3DEventMap>) {
                 var randRot = THREE.MathUtils.randFloat(0, 2*Math.PI)

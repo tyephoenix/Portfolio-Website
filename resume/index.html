@@ -11,33 +11,37 @@
     <title>Tye Phoenix</title>
   </head>
   <body>
-    
-    <h1>View Resume</h1>
+    <canvas id="gl-rendering"></canvas>
+
+    <div id="header">
+      <img src="/icon.png" alt="Tye Phoenix">
+      <a href="/">Tye Phoenix</a>
+    </div>
+
     <div id="resume">
-      <div class="render"></div>
-      <div class="loading"><span class="material-symbols-outlined">refresh</span></div>
+      <h1>My Resume</h1>
+      <div class="render">
+        <div class="loading"><span class="material-symbols-outlined">refresh</span></div>
+      </div>
 
       <div class="options">
         <div id="download-resume">Download</div>
       </div>
     </div>
 
-    <hr>
-
-    <h1>View Portfolio</h1>
     <div id="portfolio">
-      <div class="render"></div>
-      <div class="loading"><span class="material-symbols-outlined">refresh</span></div>
+      <h1>My Portfolio</h1>
+      <div class="render">
+        <div class="loading"><span class="material-symbols-outlined">refresh</span></div>
+      </div>
 
       <div class="options">
         <div id="download-portfolio">Download</div>
       </div>
     </div>
 
-    <hr>
-
     <div id="letter">
-      <h1>View Cover Letter</h1>
+      <h1>Print Cover Letter</h1>
       <input type="text" placeholder="Enter Company" id="company">
       <input type="text" placeholder="Enter Position" id="position">
 

@@ -66,8 +66,9 @@ body {
   justify-content: center;
   gap: 50px;
 }
-#navbar #alternative div {
+#navbar #alternative a {
   color: var(--text);
+  text-decoration: none;
   font-size: 18px;
   user-select: none;
   cursor: pointer;
@@ -107,6 +108,7 @@ body {
   background-color: var(--primary);
 
   padding: 50px;
+  margin-bottom: 100px;
 }
 
 #footer-video {

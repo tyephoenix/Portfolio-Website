@@ -46,11 +46,7 @@ for (const nav of navbar!.children) {
 			}
 
 			var added = false
-			if (child.hasAttribute('href')) {
-				child.onclick = () => {
-					window.location.href = child.getAttribute('href')!
-				}
-			} else {
+			if (!child.hasAttribute('href')) {
 				for (const child0 of document.body.children) {
 					if (child0 instanceof HTMLElement && child0.id === child.innerText.toLowerCase()) {
 						child.onclick = () => {
@@ -76,6 +72,7 @@ for (const nav of navbar!.children) {
 	}
 }
 
+
 Promise.all([
 	animateHero(),
 
@@ -83,7 +80,7 @@ Promise.all([
 	loadExperience(),
 	loadPassion(),
 	loadContact(),
-
+	
 	animateChat()
 ]).then(() => {
 	animateFooter()

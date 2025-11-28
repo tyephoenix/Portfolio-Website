@@ -1,0 +1,139 @@
+
+#path {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 150px 7vw 150px 7vw;
+}
+#path a {
+  color: var(--black);
+}
+#path span {
+  color: var(--gray);
+}
+
+#header {
+    align-self: center;
+
+    font-size: 48px;
+}
+
+#catalog {
+    display: flex;
+    flex-direction: column;
+  
+    padding: 7vw;
+  
+    color: var(--black);
+  }
+  
+  #catalog-latest {
+    align-self: center;
+    
+    display: flex;
+    
+    max-width: 1250px;
+    width: 100%;
+    height: 40vh;
+  
+    gap: 50px;
+  }
+  
+  #catalog-latest-featured {
+    height: 100%;
+    aspect-ratio: 6/7;
+  }
+  #catalog-latest-featured .blog-preview {
+    background: linear-gradient(45deg, gray -100%, var(--white) 100%);
+  }
+  
+  #catalog-latest-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+  }
+  
+  #catalog-latest-list .blog-preview {
+    width: 100%;
+    height: 30%;
+  }
+  
+  #catalog-latest-featured .blog-preview-keyword {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  #catalog-latest-list .blog-preview-keyword {
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  @media (orientation: portrait) {
+    #catalog-latest {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
+  
+    #catalog-latest-featured {
+      height: 50vh;
+      width: 40vh;
+    }
+  
+    #catalog-latest-list {
+      gap: 50px;
+      width: auto;
+    }
+  
+    #catalog-latest-list .blog-preview {
+      height: 50vh;
+      width: 40vh;
+  
+      background: linear-gradient(45deg, gray -100%, var(--white) 100%);
+    }
+    #catalog-latest-list .blog-preview-keyword {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+  
+  
+  /* List */
+  #catalog-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+    padding: 25px;
+  }
+  
+  #catalog-list .blog-preview {
+    width: 100%;
+    height: 125px;
+  
+    padding: 10px;
+    background: linear-gradient(45deg, gray -100%, var(--white) 100%);
+  }
+  #catalog-list .blog-preview-keyword {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  @media (orientation: portrait) {
+    #catalog-list {
+      align-items: center;
+    }
+    #catalog-list .blog-preview {
+      height: 50vh;
+      width: 40vh;
+    }
+  }

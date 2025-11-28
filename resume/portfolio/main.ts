@@ -1,5 +1,4 @@
 import { PDFDocument } from "pdf-lib"
-import * as pdfjsLib from 'pdfjs-dist';
 import * as fontkit from "fontkit"
 import gsap from "gsap"
 import { renderTitle } from "./title";
@@ -9,23 +8,49 @@ import { renderProjects } from "./projects";
 
 const WIDTH = 11
 const HEIGHT = 8.5
+export function setupPortfolioRender() {
+    const DOWNLOAD = document.getElementById('download-portfolio') as HTMLDivElement
+    DOWNLOAD.onmouseenter = () => {
+        gsap.to(DOWNLOAD, {
+            duration: 0.3,
+
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text'),
+            color: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
+        })
+    }   
+    DOWNLOAD.onmouseleave = () => {
+        gsap.to(DOWNLOAD, {
+            duration: 0.3,
+
+            backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
+            color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
+        })
+    }
+    DOWNLOAD.onclick = async () => {
+        URL.revokeObjectURL(await downloadPortfolio())
+    }
+
+    gsap.set('#portfolio .render', {
+        aspectRatio: WIDTH / HEIGHT,
+    })
+}
 
 var RENDER: Promise<Uint8Array> | null = null
 var PDF: Uint8Array | null = null
 export function queuePortfolioRender(): Promise<void> {
     return new Promise((resolve) => {
-        gsap.set('#portfolio .render', {
-            aspectRatio: WIDTH / HEIGHT,
-        })
         if (RENDER) 
             return
-        const promise = renderPortfolio()
+        const promise = ((import.meta as any).env != undefined && (import.meta as any).env.MODE == 'production') ? pullPortfolio() : renderPortfolio()
         gsap.to('#portfolio .loading', {
             duration: 0.3,
             opacity: 1,
         })
         RENDER = promise
-        promise.then(() => {
+        promise.then(async (bytes) => {
+            const pdf = document.querySelector('#portfolio .render') as HTMLDivElement
+            pdf.style.backgroundImage = `url(${await pdfToPng(bytes, 1)})`
+
             RENDER = null
             resolve()
 
@@ -38,8 +63,14 @@ export function queuePortfolioRender(): Promise<void> {
     })
 }
 
+async function pullPortfolio() {
+    const portfolio = await fetch("/portfolio.pdf")
+    const portfolioBytes = await portfolio.arrayBuffer()
+    PDF = new Uint8Array(portfolioBytes)
+    return PDF
+}
 
-async function renderPortfolio() {
+export async function renderPortfolio() {
     const dpi = 300
     const width = WIDTH * dpi
     const height = HEIGHT * dpi
@@ -79,32 +110,7 @@ async function renderPortfolio() {
 
     PDF = new Uint8Array(bytes)
 
-    const pdf = document.querySelector('#portfolio .render') as HTMLDivElement
-    pdf.style.backgroundImage = `url(${await pdfToPng(bytes, 1)})`
-
     return bytes
-}
-
-
-const DOWNLOAD = document.getElementById('download-portfolio') as HTMLDivElement
-DOWNLOAD.onmouseenter = () => {
-    gsap.to(DOWNLOAD, {
-        duration: 0.3,
-
-        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--text'),
-        color: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
-    })
-}   
-DOWNLOAD.onmouseleave = () => {
-    gsap.to(DOWNLOAD, {
-        duration: 0.3,
-
-        backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--primary'),
-        color: getComputedStyle(document.documentElement).getPropertyValue('--text'),
-    })
-}
-DOWNLOAD.onclick = async () => {
-    URL.revokeObjectURL(await downloadPortfolio())
 }
 
 export async function downloadPortfolio(): Promise<string> {

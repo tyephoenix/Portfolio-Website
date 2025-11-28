@@ -1,0 +1,23 @@
+:root {
+    --black: #0A0B10;
+    --gray: #181A18;
+    --white: #F5F7FA;
+
+    --cyan: #6BE6FF;
+    --violet: #7F5CFF;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--white);
+    color: var(--black);
+
+    font-family: "Inter";
+
+    overflow-x: hidden;
+}

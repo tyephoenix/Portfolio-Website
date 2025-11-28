@@ -1,4 +1,4 @@
-import { PDFDocument, PDFFont, PDFImage, PDFPage, rgb } from "pdf-lib"
+import { PDFDocument, PDFFont, PDFImage, rgb } from "pdf-lib"
 import { decodeImage, pdfToPng } from "../util/image"
 import { drawParanthesizedText, parenthesizeText } from "../util/draw"
 
@@ -10,7 +10,6 @@ export async function renderProjects(doc: PDFDocument, fonts: Record<string, PDF
 
     const projects = await (await fetch("/projects.json")).json()
 
-    var index = 1
     for (const project of projects) {
         // Title
         const page = doc.addPage([width, height])   
@@ -73,8 +72,10 @@ export async function renderProjects(doc: PDFDocument, fonts: Record<string, PDF
             const embed = await doc.embedPng(image.data)
             renderHero(embed)
         } else if (hero.endsWith('.pdf')) {
-            const resourceDoc = await PDFDocument.load(await (await fetch(hero)).arrayBuffer())
-            const resourceImage = await pdfToPng(await resourceDoc.save())
+            const heroBuffer = await (await fetch(hero)).arrayBuffer()
+            const resourceDoc = await PDFDocument.load(heroBuffer)
+            const resourceBytes = await resourceDoc.save()
+            const resourceImage = await pdfToPng(resourceBytes)
             const embed = await doc.embedPng(resourceImage)
             renderHero(embed)
         }

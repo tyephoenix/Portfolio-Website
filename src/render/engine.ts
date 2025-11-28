@@ -47,7 +47,7 @@ document.body.onscroll = () => {
 function animate() {
     requestAnimationFrame(animate)
 
-    var point = tick % cycle
+    var point = isNaN(tick % cycle) ? 0 : tick % cycle
     CAMERA.position.setY((1/10) * point)
 
     renderer.render(SCENE, CAMERA)
